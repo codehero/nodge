@@ -1,0 +1,10 @@
+Import('*')
+
+CommonLibs = Split('nodge benejson')
+
+json_gen = bin_env.Program(Split('json_generator.cpp posix.cpp MetaSchema.cpp Builder.cpp ModelWriter.cpp'), LIBS=CommonLibs);
+
+model_gen = bin_env.Program(Split('model_gen.cpp MetaSchema.cpp Builder.cpp ModelWriter.cpp'), LIBS=CommonLibs);
+
+bin_env.Install(bin_env.BinDest, model_gen)
+bin_env.Install(bin_env.BinDest, json_gen)

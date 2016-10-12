@@ -1,0 +1,12 @@
+Import('*')
+
+lib_env = lib_env.Clone()
+lib_env.IncDest += '/nodge'
+
+lt = lib_env.SharedLibrary('nodge', Split('Type.cpp Data.cpp Error.cpp Model.cpp \
+	GraphSpec.cpp Graph.cpp BasicGraph.cpp'))
+
+li = lib_env.Install(bin_env.LibDest, lt)
+
+lh = lib_env.Install(lib_env.IncDest, Split('Type.hh Data.hh Enum.hh Error.hh \
+	Member.hh String.hh GraphSpec.hh Graph.hh Model.hh BasicGraph.hh'))

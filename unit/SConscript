@@ -1,0 +1,12 @@
+Import('*')
+
+CommonLibs = Split('MetaSchema Types Graph Meta')
+
+#gen_db = bin_env.Program('gen_db.cpp', LIBS=CommonLibs)
+#bin_env.Install(bin_env.BinDest, gen_db)
+
+#cpp_gen = bin_env.Program(Split('cpp_gen.cpp DataClassWriter.cpp NodeLinkWriter.cpp'), LIBS=CommonLibs);
+#bin_env.Install(bin_env.BinDest, cpp_gen)
+
+model_gen = bin_env.Program('model_gen.cpp', LIBS=CommonLibs);
+bin_env.Install(bin_env.BinDest, model_gen)

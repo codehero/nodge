@@ -1,0 +1,118 @@
+[
+	["import"
+	]
+	,["properties",{
+		"type_enum" : "type_enum"
+	}]
+	,["make_type",[]]
+	,["make_enum",{
+		"type_enum" : [
+			"MemberType", "M_UNSIGNED_INT"
+			,[
+				 ["M_BOOL", "0"]
+				,["M_UNSIGNED_INT", "1"]
+				,["M_INT", "2"]
+				,["M_UNSIGNED_LONG", "3"]
+				,["M_LONG", "4"]
+				,["M_STRING", "5"]
+				,["M_FLOAT", "6"]
+				,["M_DOUBLE", "7"]
+				,["M_VARIANT", "8"]
+			]
+		]
+	}]
+	,["make_member_spec",{
+		"cpp_name_mem" : {
+			"name" : "cpp_name"
+			,"kind" : "M_STRING"
+		}
+		,"id_mem" : {
+			"name" : "id"
+			,"kind" : "M_UNSIGNED_LONG"
+		}
+		,"name_mem" : {
+			"name" : "name"
+			,"kind" : "M_STRING"
+		}
+	}]
+	,["make_data_spec",{
+		"type_spec" : [
+			["add_member_spec", { "name" : "cpp_type", "kind" : "M_STRING" }]
+			,["add_member_spec", { "name" : "enum_name", "kind" : "type_enum" }]
+		]
+		,"enum_value_spec" : [
+			["link_member_spec", "cpp_name_mem"]
+			,["add_member_spec", { "name" : "value", "kind" : "M_STRING" }]
+			,["add_member_spec", { "name" : "order", "kind" : "M_UNSIGNED_INT" }]
+		]
+		,"enum_spec" : [
+			["link_member_spec", "cpp_name_mem"]
+		]
+		,"mem_spec" : [
+			["link_member_spec", "id_mem"]
+			,["link_member_spec", "name_mem"]
+		]
+		,"data_spec" : [
+			["link_member_spec", "id_mem"]
+			,["link_member_spec", "name_mem"]
+		]
+		,"node_spec" : [
+			["link_member_spec", "id_mem"]
+			,["add_member_spec", { "name" : "num_parent_links", "kind" : "M_UNSIGNED_INT" }]
+			,["add_member_spec", { "name" : "num_child_links", "kind" : "M_UNSIGNED_INT" }]
+			,["link_member_spec", "name_mem"]
+		]
+		,"link_spec" : [
+			["link_member_spec", "id_mem"]
+			,["add_member_spec", { "name" : "num_parents", "kind" : "M_UNSIGNED_INT" }]
+			,["add_member_spec", { "name" : "num_children", "kind" : "M_UNSIGNED_INT" }]
+			,["add_member_spec", { "name" : "num_parent_types", "kind" : "M_UNSIGNED_INT" }]
+			,["add_member_spec", { "name" : "num_children_types", "kind" : "M_UNSIGNED_INT" }]
+			,["link_member_spec", "name_mem"]
+			,["add_member_spec", { "name" : "ordered_by_insert", "kind" : "M_BOOL" }]
+		]
+		,"model_spec" : [
+			["link_member_spec", "id_mem"]
+			,["link_member_spec", "name_mem"]
+		]
+	}]
+	,["make_node_spec",{
+		 "TYPE_SPEC_NODE" : "type_spec"
+		,"ENUM_VALUE_SPEC_NODE": "enum_value_spec"
+		,"ENUM_SPEC_NODE": "enum_spec"
+		,"MEM_SPEC_NODE": "mem_spec"
+		,"DATA_SPEC_NODE": "data_spec"
+		,"NODE_SPEC_NODE": "node_spec"
+		,"LINK_SPEC_NODE": "link_spec"
+		,"MODEL_SPEC_NODE":"model_spec"
+	}]
+	,["make_link_spec",{
+		"LNK_MEM_KIND" : [0, 1, "MEM_SPEC_NODE", "TYPE_SPEC_NODE", false
+			,[
+				["ENUM_SPEC_NODE", false]
+			]
+		]
+		,"LNK_ENUM_ENUM_VALUE" : [1, 0, "ENUM_SPEC_NODE", "ENUM_VALUE_SPEC_NODE", true, []]
+		,"LNK_ENUM_TYPE" : [0, 1, "ENUM_SPEC_NODE", "TYPE_SPEC_NODE", false,[]]
+		,"LNK_DATA_MEM" : [0, 0, "DATA_SPEC_NODE", "MEM_SPEC_NODE", true,[]]
+		,"LNK_DATA_ANCESTOR" : [0, 1, "DATA_SPEC_NODE", "DATA_SPEC_NODE", false,[]]
+		,"LNK_NODE_DATA" : [1, 0, "NODE_SPEC_NODE", "DATA_SPEC_NODE", false,[]]
+		,"LNK_LINK_PARENT_NODE" : [0, 0, "LINK_SPEC_NODE", "NODE_SPEC_NODE", false,[]]
+		,"LNK_LINK_CHILD_NODE" : [0, 0, "LINK_SPEC_NODE", "NODE_SPEC_NODE", false,[]]
+		,"LNK_MODEL_LINK" : [1, 0, "MODEL_SPEC_NODE", "LINK_SPEC_NODE", false,[]]
+		,"LNK_OWNER_MODEL" : [0, 1, "NODE_SPEC_NODE", "MODEL_SPEC_NODE", false
+			,[
+				["DATA_SPEC_NODE", true]
+				,["MEM_SPEC_NODE", true]
+				,["ENUM_SPEC_NODE", true]
+			]
+		]
+		,"LNK_MODEL_ORDER" : [1, 0, "MODEL_SPEC_NODE", "TYPE_SPEC_NODE", true
+			,[
+				["DATA_SPEC_NODE", false]
+				,["NODE_SPEC_NODE", false]
+				,["LINK_SPEC_NODE", false]
+			]
+		]
+	}]
+]

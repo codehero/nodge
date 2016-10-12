@@ -1,0 +1,4 @@
+Import ('*')
+
+SConscript(Split('nodge/SConscript generator/SConscript'), \
+	exports='bin_env lib_env')
