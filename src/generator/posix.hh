@@ -11,16 +11,16 @@ class FD_Reader: public BNJ::PullParser::Reader {
 	public:
 		/** @brief ctor, initialize with file descriptor.
 		 *  @param fd Open file descriptor. See dtor for more details. */
-		FD_Reader(int fd) throw();
+		FD_Reader(int fd) noexcept;
 
 		/** @brief dtor. Note that this class closes the fd passed to it. */
-		~FD_Reader() throw();
+		~FD_Reader() noexcept;
 
 		/** @brief If error occurs, retrieve what happend. */
-		int Errno(void) const throw();
+		int Errno(void) const noexcept;
 
 		/** @brief Override. Note reading from closed fd returns 0! */
-		int Read(uint8_t* buff, unsigned len) throw();
+		int Read(uint8_t* buff, unsigned len) noexcept;
 	
 	private:
 		/** @brief Fd from which we read. */
@@ -32,7 +32,7 @@ class FD_Reader: public BNJ::PullParser::Reader {
 
 /* Inlines. */
 
-inline int FD_Reader::Errno(void) const throw() {
+inline int FD_Reader::Errno(void) const noexcept {
 	return _errno;
 }
 

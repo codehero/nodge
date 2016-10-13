@@ -69,15 +69,15 @@ class member_iterator{
 		virtual void Get(double& d) const throw(exception) = 0;
 
 		/** @brief */
-		virtual void Reset(void) throw() = 0;
+		virtual void Reset(void) noexcept = 0;
 
 		/** @brief */
-		bool AtEnd(void) const throw() {
+		bool AtEnd(void) const noexcept {
 			return m_end;
 		}
 
 		/** @brief */
-		virtual ~member_iterator() throw() {
+		virtual ~member_iterator() noexcept {
 		}
 
 		/** @brief Function for calling functors with operators (MemberSpec, T) . */
@@ -162,7 +162,7 @@ class member_iterator{
 		bool m_end;
 
 		/** @brief */
-		member_iterator(void) throw() {
+		member_iterator(void) noexcept {
 			/* descendant implementation must set m_end. */
 		}
 };

@@ -14,10 +14,10 @@ const Type MetaSchema::type_list[Type::NUM_TYPES] = {
 
 using MetaSchema::type_spec;
 
-type_spec::type_spec() throw() {
+type_spec::type_spec() noexcept {
 }
 
-type_spec::~type_spec() throw(){
+type_spec::~type_spec() noexcept{
 }
 
 type_spec* type_spec::Clone() const {
@@ -65,10 +65,10 @@ void type_spec::Get(const MemberSpec& ms, const string*& x) const
 
 using MetaSchema::enum_spec;
 
-enum_spec::enum_spec() throw() {
+enum_spec::enum_spec() noexcept {
 }
 
-enum_spec::~enum_spec() throw(){
+enum_spec::~enum_spec() noexcept{
 }
 
 enum_spec* enum_spec::Clone() const {
@@ -100,10 +100,10 @@ static const MemberSpec enum_value_spec_member_specs[] = {
 	MemberSpec(2, Type::M_UNSIGNED_INT, "order", NULL),
 };
 
-enum_value_spec::enum_value_spec() throw() {
+enum_value_spec::enum_value_spec() noexcept {
 }
 
-enum_value_spec::~enum_value_spec() throw(){
+enum_value_spec::~enum_value_spec() noexcept{
 }
 
 enum_value_spec* enum_value_spec::Clone() const {
@@ -147,10 +147,10 @@ static const MemberSpec mem_spec_member_specs[] = {
 	MemberSpec(1, Type::M_STRING, "name", NULL),
 };
 
-mem_spec::mem_spec() throw() {
+mem_spec::mem_spec() noexcept {
 }
 
-mem_spec::~mem_spec() throw(){
+mem_spec::~mem_spec() noexcept{
 }
 
 mem_spec* mem_spec::Clone() const {
@@ -186,10 +186,10 @@ static const MemberSpec data_spec_member_specs[] = {
 	MemberSpec(1, Type::M_STRING, "name", NULL),
 };
 
-data_spec::data_spec() throw() {
+data_spec::data_spec() noexcept {
 }
 
-data_spec::~data_spec() throw(){
+data_spec::~data_spec() noexcept{
 }
 
 data_spec* data_spec::Clone() const {
@@ -231,10 +231,10 @@ static const MemberSpec node_spec_member_specs[] = {
 	MemberSpec(3, Type::M_STRING, "name", NULL),
 };
 
-node_spec::node_spec() throw() {
+node_spec::node_spec() noexcept {
 }
 
-node_spec::~node_spec() throw() {
+node_spec::~node_spec() noexcept {
 }
 
 node_spec* node_spec::Clone() const {
@@ -284,9 +284,9 @@ static const MemberSpec link_spec_member_specs[] = {
 	MemberSpec(4, Type::M_BOOL, "ordered_by_insert", NULL),
 };
 
-link_spec::link_spec() throw() {
+link_spec::link_spec() noexcept {
 }
-link_spec::~link_spec() throw(){ }
+link_spec::~link_spec() noexcept{ }
 
 link_spec* link_spec::Clone() const {
 	link_spec* retval = new link_spec;
@@ -351,10 +351,10 @@ static const MemberSpec model_spec_member_specs[] = {
 	MemberSpec(1, Type::M_UNSIGNED_INT, "id", NULL),
 };
 
-model_spec::model_spec() throw() {
+model_spec::model_spec() noexcept {
 }
 
-model_spec::~model_spec() throw() {
+model_spec::~model_spec() noexcept {
 }
 
 model_spec* model_spec::Clone() const {

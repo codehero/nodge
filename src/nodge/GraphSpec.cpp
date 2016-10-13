@@ -6,7 +6,7 @@ NodeSpec::NodeSpec(const Model& p_model, const string& p_name,
 {
 }
 
-bool LinkSpec::IsEndpointType(const NodeSpec& ns, bool parent) const throw(){
+bool LinkSpec::IsEndpointType(const NodeSpec& ns, bool parent) const noexcept{
 	unsigned idx = parent ? 0 : num_parent_types;
 	const unsigned end =
 		parent ? num_parent_types : num_parent_types + num_children_types;

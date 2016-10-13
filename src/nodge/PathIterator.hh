@@ -12,11 +12,11 @@ class PathIterator {
 
 		/** @brief Go onto next edge.
 		 *  @return Change in depth. */
-		int next(void) throw();
+		int next(void) noexcept();
 
 		/** @brief Length of current path.
 		 *  @return If 0, Iterator has reached the end. */
-		unsigned size(void) const throw();
+		unsigned size(void) const noexcept;
 
 		/** @brief Retrieve node starting from end of path. */
 		const Graph::Node& Node(unsigned rev_idx) const throw(std::exception);

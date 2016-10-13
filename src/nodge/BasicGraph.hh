@@ -86,7 +86,7 @@ class BasicGraph : public Graph{
 				void Get(const MemberSpec& id, const unsigned*& x) const
 					throw(parameter_error);
 
-				const Spec& GetSpec(void) const throw();
+				const Spec& GetSpec(void) const noexcept;
 
 				Ref* Clone(void) const;
 
@@ -292,7 +292,7 @@ inline BasicGraph::Ref::Ref(unsigned nid) : node_id(nid)
 inline BasicGraph::Ref::~Ref() {
 }
 
-inline const Data::Spec& BasicGraph::Ref::GetSpec(void) const throw(){
+inline const Data::Spec& BasicGraph::Ref::GetSpec(void) const noexcept{
 	return s_spec;
 }
 

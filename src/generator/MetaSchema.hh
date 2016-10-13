@@ -76,11 +76,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const string*& x) const
 				throw(parameter_error);
 
-			type_spec(void) throw();
-			~type_spec() throw();
+			type_spec(void) noexcept;
+			~type_spec() noexcept;
 			type_spec* Clone() const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[TYPE_DATA_SPEC];
 			}
 
@@ -109,11 +109,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const unsigned*& x) const
 				throw(parameter_error);
 
-			enum_value_spec(void) throw();
-			~enum_value_spec() throw();
+			enum_value_spec(void) noexcept;
+			~enum_value_spec() noexcept;
 			enum_value_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[ENUM_VALUE_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){
@@ -135,11 +135,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const string*& x) const
 				throw(parameter_error);
 
-			enum_spec(void) throw();
-			~enum_spec() throw();
+			enum_spec(void) noexcept;
+			~enum_spec() noexcept;
 			enum_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[ENUM_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){
@@ -166,11 +166,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const string*& x) const
 				throw(parameter_error);
 
-			mem_spec(void) throw();
-			~mem_spec() throw();
+			mem_spec(void) noexcept;
+			~mem_spec() noexcept;
 			mem_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[MEM_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){
@@ -196,11 +196,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const string*& x) const
 				throw(parameter_error);
 
-			data_spec(void) throw();
-			~data_spec() throw();
+			data_spec(void) noexcept;
+			~data_spec() noexcept;
 			data_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[DATA_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){
@@ -231,11 +231,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const string*& x) const
 				throw(parameter_error);
 
-			node_spec(void) throw();
-			~node_spec() throw();
+			node_spec(void) noexcept;
+			~node_spec() noexcept;
 			node_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[NODE_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){
@@ -273,11 +273,11 @@ namespace MetaSchema {
 			void Get(const MemberSpec& id, const bool*& x) const
 				throw(parameter_error);
 
-			link_spec(void) throw();
-			~link_spec() throw();
+			link_spec(void) noexcept;
+			~link_spec() noexcept;
 			link_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[LINK_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){
@@ -302,11 +302,11 @@ namespace MetaSchema {
 				throw(parameter_error);
 			void Get(const MemberSpec& id, const string*& x) const throw(parameter_error);
 
-			model_spec(void) throw();
-			~model_spec() throw();
+			model_spec(void) noexcept;
+			~model_spec() noexcept;
 			model_spec* Clone(void) const;
 
-			const Spec& GetSpec(void) const throw(){
+			const Spec& GetSpec(void) const noexcept{
 				return data_specs[MODEL_DATA_SPEC];
 			}
 			static Data* CreateInstance(void){

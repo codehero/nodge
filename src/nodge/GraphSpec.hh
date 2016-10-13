@@ -76,17 +76,17 @@ struct LinkSpec{
 		const LinkSpec* p_ancestor = NULL);
 
 	/** @brief  */
-	bool operator ==(const LinkSpec& lspec) const throw();
+	bool operator ==(const LinkSpec& lspec) const noexcept;
 
 	/** @brief  */
-	unsigned ConstantNeighborsMax(void) const throw();
+	unsigned ConstantNeighborsMax(void) const noexcept;
 
 	/** @brief  */
-	bool IsEndpointType(const NodeSpec& ns, bool parent) const throw();
+	bool IsEndpointType(const NodeSpec& ns, bool parent) const noexcept;
 
 	protected:
 		/** @brief For use only by generation. */
-		static Relationship calc_relation(unsigned p, unsigned c) throw();
+		static Relationship calc_relation(unsigned p, unsigned c) noexcept;
 };
 
 /** @brief  */
@@ -112,7 +112,7 @@ struct NodeSpec{
 		const Data::Spec& p_dspec);
 
 	/** @brief  */
-	bool operator ==(const NodeSpec& other) const throw();
+	bool operator ==(const NodeSpec& other) const noexcept;
 };
 
 /* LinkSpec */
@@ -132,16 +132,16 @@ inline LinkSpec::LinkSpec(const Model& p_model, const string& p_name,
 {
 }
 
-inline bool LinkSpec::operator ==(const LinkSpec& lspec) const throw(){
+inline bool LinkSpec::operator ==(const LinkSpec& lspec) const noexcept{
 	return this == &lspec;
 }
 
-inline unsigned LinkSpec::ConstantNeighborsMax(void) const throw(){
+inline unsigned LinkSpec::ConstantNeighborsMax(void) const noexcept{
 	return num_parents + num_children;
 }
 
 inline LinkSpec::Relationship LinkSpec::calc_relation(
-	unsigned p, unsigned c) throw()
+	unsigned p, unsigned c) noexcept
 {
 	if(p == MANY && c == MANY)
 		return MANY_TO_MANY;
@@ -152,7 +152,7 @@ inline LinkSpec::Relationship LinkSpec::calc_relation(
 
 /* NodeSpec */
 
-inline bool NodeSpec::operator ==(const NodeSpec& other) const throw(){
+inline bool NodeSpec::operator ==(const NodeSpec& other) const noexcept{
 	return this == &other;
 }
 

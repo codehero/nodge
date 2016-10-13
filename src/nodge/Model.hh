@@ -45,7 +45,7 @@ class Model {
 		/** @brief 
 		 *  @param
 		 *  @return */
-		bool operator ==(const Model& m) const throw();
+		bool operator ==(const Model& m) const noexcept;
 
 
 		/* NodeSpec Properties. */
@@ -53,64 +53,64 @@ class Model {
 		/** @brief Retrieve Model ID of NodeSpec in context of this Model.
 		 *  @param nspec Reference to nspec
 		 *  @return 0 < if nspec does not exist in Model; id otherwise. */
-		int ModelID(const NodeSpec& nspec) const throw();
+		int ModelID(const NodeSpec& nspec) const noexcept;
 
 		/** @brief Maximum possible number of Constant Neighbors */
-		unsigned ConstantNeighborsMax(const NodeSpec& nspec) const throw();
+		unsigned ConstantNeighborsMax(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator parent_begin(const NodeSpec& nspec) const throw();
+		lspec_iterator parent_begin(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator parent_end(const NodeSpec& nspec) const throw();
+		lspec_iterator parent_end(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		unsigned parent_count(const NodeSpec& nspec) const throw();
+		unsigned parent_count(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator child_begin(const NodeSpec& nspec) const throw();
+		lspec_iterator child_begin(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator child_end(const NodeSpec& nspec) const throw();
+		lspec_iterator child_end(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		unsigned child_count(const NodeSpec& nspec) const throw();
+		unsigned child_count(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator many_begin(const NodeSpec& nspec) const throw();
+		lspec_iterator many_begin(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator many_end(const NodeSpec& nspec) const throw();
+		lspec_iterator many_end(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		unsigned many_count(const NodeSpec& nspec) const throw();
+		unsigned many_count(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator constant_begin(const NodeSpec& nspec) const throw();
+		lspec_iterator constant_begin(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator constant_end(const NodeSpec& nspec) const throw();
+		lspec_iterator constant_end(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator ordered_begin(const NodeSpec& nspec) const throw();
+		lspec_iterator ordered_begin(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		lspec_iterator ordered_end(const NodeSpec& nspec) const throw();
+		lspec_iterator ordered_end(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		unsigned ordered_count(const NodeSpec& nspec) const throw();
+		unsigned ordered_count(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
-		unsigned constant_count(const NodeSpec& nspec) const throw();
+		unsigned constant_count(const NodeSpec& nspec) const noexcept;
 
 
 		/** @brief 
 		 *  @param id */
-		const NodeSpec* GetNodeSpec(unsigned id) const throw();
+		const NodeSpec* GetNodeSpec(unsigned id) const noexcept;
 
 		/** @brief 
 		 *  @param name */
-		const NodeSpec* GetNodeSpec(const string& name) const throw();
+		const NodeSpec* GetNodeSpec(const string& name) const noexcept;
 
 
 		/* LinkSpec Properties. */
@@ -118,15 +118,15 @@ class Model {
 		/** @brief Retrieve Model ID of LinkSpec in context of this Model.
 		 *  @param lspec Reference to lspec
 		 *  @return 0 < if lspec does not exist in Model; id otherwise. */
-		int ModelID(const LinkSpec& lspec) const throw();
+		int ModelID(const LinkSpec& lspec) const noexcept;
 
 		/** @brief 
 		 *  @param id */
-		const LinkSpec* GetLinkSpec(unsigned id) const throw();
+		const LinkSpec* GetLinkSpec(unsigned id) const noexcept;
 
 		/** @brief 
 		 *  @param name */
-		const LinkSpec* GetLinkSpec(const string& name) const throw();
+		const LinkSpec* GetLinkSpec(const string& name) const noexcept;
 
 
 		/* Data::Spec Properties. */
@@ -134,69 +134,69 @@ class Model {
 		/** @brief Retrieve Model ID of Data::Spec in context of this Model.
 		 *  @param dspec Reference to dspec
 		 *  @return 0 if dspec does not exist in Model; id otherwise. */
-		int ModelID(const Data::Spec& dspec) const throw();
+		int ModelID(const Data::Spec& dspec) const noexcept;
 
 		/** @brief 
 		 *  @param id */
-		const Data::Spec* GetDataSpec(unsigned id) const throw();
+		const Data::Spec* GetDataSpec(unsigned id) const noexcept;
 
 		/** @brief 
 		 *  @param name */
-		const Data::Spec* GetDataSpec(const string& name) const throw();
+		const Data::Spec* GetDataSpec(const string& name) const noexcept;
 
 
 		/** @brief 
 		 *  @return */
-		const LinkSpec* begin(void) const throw();
+		const LinkSpec* begin(void) const noexcept;
 
 		/** @brief 
 		 *  @return */
-		const LinkSpec* end(void) const throw();
+		const LinkSpec* end(void) const noexcept;
 
 		/** @brief Retrieve iterator beginning to linkspecs between two models.
 		 *  @param m1 if NULL, then this Model
 		 *  @param m2 if NULL, then this Model
 		 *  @return end if no links between m1, m2; begin otherwise. */
 		const LinkSpec* const* model_begin(const Model* m1 = NULL,
-			const Model* m2 = NULL) const throw();
+			const Model* m2 = NULL) const noexcept;
 
 		/** @brief Retrieve iterator beginning to linkspecs between two models.
 		 *  @param m1 if NULL, then this Model
 		 *  @param m2 if NULL, then this Model
 		 *  @return end() if no links between m1, m2; begin otherwise. */
 		const LinkSpec* const* model_end(const Model* m1 = NULL,
-			const Model* m2 = NULL) const throw();
+			const Model* m2 = NULL) const noexcept;
 
 
 		/** @brief 
 		 *  @param
 		 *  @return */
-		bool OwnsNodeSpec(const NodeSpec& nspec) const throw();
+		bool OwnsNodeSpec(const NodeSpec& nspec) const noexcept;
 
 		/** @brief 
 		 *  @param
 		 *  @return */
-		bool OwnsLinkSpec(const LinkSpec& lspec) const throw();
+		bool OwnsLinkSpec(const LinkSpec& lspec) const noexcept;
 
 
 		/** @brief Check if this Model refers to other.
 		 *  @param other Model we are looking for.
 		 *  @return true if this refers to other or (other == this) */
-		bool References(const Model& other) const throw();
+		bool References(const Model& other) const noexcept;
 
 		/** @brief  */
-		unsigned NumLinks(void) const throw();
+		unsigned NumLinks(void) const noexcept;
 
 		/** @brief  */
-		unsigned NumNodes(void) const throw();
+		unsigned NumNodes(void) const noexcept;
 
 		/** @brief  */
-		const string& GetID(void) const throw();
+		const string& GetID(void) const noexcept;
 
 
 		/** @brief
 		 * 	@param name */
-		static const Model* GetModel(const string& name) throw();
+		static const Model* GetModel(const string& name) noexcept;
 
 
 		/** @brief Suffix to add 
@@ -250,7 +250,7 @@ class Model {
 	protected:
 
 		/** @brief  */
-		int get_offset(const NodeSpec& nspec) const throw();
+		int get_offset(const NodeSpec& nspec) const noexcept;
 
 		/** @brief  */
 		static ModelList s_models;
@@ -301,76 +301,76 @@ class Model {
 /* Auxiliary functions. */
 
 unsigned SumNeighbors(const Model& m, const NodeSpec& nspec, const LinkSpec& ls)
-	throw();
+	noexcept;
 
 
 /* Model */
 
-inline bool Model::operator ==(const Model& m) const throw(){
+inline bool Model::operator ==(const Model& m) const noexcept{
 	return this == &m;
 }
 
 inline unsigned Model::ConstantNeighborsMax(const NodeSpec& nspec) const
-	throw()
+	noexcept
 {
 	return _node_index[get_offset(nspec)].max_const_neighors;
 }
 
 inline Model::lspec_iterator
-	Model::parent_begin(const NodeSpec& nspec) const throw()
+	Model::parent_begin(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset;
 }
 
 inline Model::lspec_iterator
-	Model::parent_end(const NodeSpec& nspec) const throw()
+	Model::parent_end(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count;
 }
 
-inline unsigned Model::parent_count(const NodeSpec& nspec) const throw(){
+inline unsigned Model::parent_count(const NodeSpec& nspec) const noexcept{
 	return _node_index[get_offset(nspec)].parent_count;
 }
 
 inline Model::lspec_iterator
-	Model::child_begin(const NodeSpec& nspec) const throw()
+	Model::child_begin(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count;
 }
 
-inline Model::lspec_iterator Model::child_end(const NodeSpec& nspec) const throw(){
+inline Model::lspec_iterator Model::child_end(const NodeSpec& nspec) const noexcept{
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count;
 }
 
-inline unsigned Model::child_count(const NodeSpec& nspec) const throw(){
+inline unsigned Model::child_count(const NodeSpec& nspec) const noexcept{
 	return _node_index[get_offset(nspec)].child_count;
 }
 
 inline Model::lspec_iterator
-	Model::many_begin(const NodeSpec& nspec) const throw()
+	Model::many_begin(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl =_node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count;
 }
 
 inline Model::lspec_iterator
-	Model::many_end(const NodeSpec& nspec) const throw()
+	Model::many_end(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count
 		+ nl.many_count - nl.ordered_count;
 }
 
-inline unsigned Model::many_count(const NodeSpec& nspec) const throw(){
+inline unsigned Model::many_count(const NodeSpec& nspec) const noexcept{
 	return _node_index[get_offset(nspec)].many_count;
 }
 
 inline Model::lspec_iterator
-	Model::constant_begin(const NodeSpec& nspec) const throw()
+	Model::constant_begin(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count
@@ -378,76 +378,76 @@ inline Model::lspec_iterator
 }
 
 inline Model::lspec_iterator
-	Model::constant_end(const NodeSpec& nspec) const throw()
+	Model::constant_end(const NodeSpec& nspec) const noexcept
 {
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count
 		+ nl.many_count + nl.constant_count;
 }
 
-inline Model::lspec_iterator Model::ordered_begin(const NodeSpec& nspec) const throw(){
+inline Model::lspec_iterator Model::ordered_begin(const NodeSpec& nspec) const noexcept{
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count
 		+ nl.many_count - nl.ordered_count;
 }
 
-inline Model::lspec_iterator Model::ordered_end(const NodeSpec& nspec) const throw(){
+inline Model::lspec_iterator Model::ordered_end(const NodeSpec& nspec) const noexcept{
 	const NodeLinks& nl = _node_index[get_offset(nspec)]; 
 	return _link_index + nl.offset + nl.parent_count + nl.child_count
 		+ nl.many_count + nl.constant_count;
 }
 
-inline unsigned Model::ordered_count(const NodeSpec& nspec) const throw(){
+inline unsigned Model::ordered_count(const NodeSpec& nspec) const noexcept{
 	return _node_index[get_offset(nspec)].ordered_count;
 }
 
-inline unsigned Model::constant_count(const NodeSpec& nspec) const throw(){
+inline unsigned Model::constant_count(const NodeSpec& nspec) const noexcept{
 	return _node_index[get_offset(nspec)].constant_count;
 }
 
 
-inline const LinkSpec* Model::begin(void) const throw(){
+inline const LinkSpec* Model::begin(void) const noexcept{
 	return _linkspecs;
 }
 
-inline const LinkSpec* Model::end(void) const throw(){
+inline const LinkSpec* Model::end(void) const noexcept{
 	return _linkspecs + _linkspec_count;
 }
 
 
-inline bool Model::OwnsNodeSpec(const NodeSpec& nspec) const throw(){
+inline bool Model::OwnsNodeSpec(const NodeSpec& nspec) const noexcept{
 	return &nspec.model == this;
 }
 
-inline bool Model::OwnsLinkSpec(const LinkSpec& lspec) const throw(){
+inline bool Model::OwnsLinkSpec(const LinkSpec& lspec) const noexcept{
 	return &lspec.model == this;
 }
 
 
-inline unsigned Model::NumLinks(void) const throw(){
+inline unsigned Model::NumLinks(void) const noexcept{
 	return _linkspec_count;
 }
 
-inline unsigned Model::NumNodes(void) const throw(){
+inline unsigned Model::NumNodes(void) const noexcept{
 	return _nodespec_count;
 }
 
 
-inline int Model::ModelID(const LinkSpec& lspec) const throw(){
+inline int Model::ModelID(const LinkSpec& lspec) const noexcept{
 	int diff = &lspec - _linkspecs;
 	if(diff < 0)
 		return -1;
 	return (static_cast<unsigned>(diff) >= _linkspec_count) ? -1 : diff;
 }
 
-inline int Model::ModelID(const NodeSpec& nspec) const throw(){
+inline int Model::ModelID(const NodeSpec& nspec) const noexcept{
 	int diff = &nspec - _nodespecs;
 	if(diff < 0)
 		return -1;
 	return (static_cast<unsigned>(diff) >= _nodespec_count) ? -1 : diff;
 }
 
-inline int Model::ModelID(const Data::Spec& dspec) const throw(){
+inline int Model::ModelID(const Data::Spec& dspec) const noexcept{
 	int diff = &dspec - _dataspecs;
 	if(diff < 0)
 		return -1;

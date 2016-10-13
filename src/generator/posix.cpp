@@ -5,18 +5,18 @@
 #include <unistd.h>
 #include "posix.hh"
 
-FD_Reader::FD_Reader(int fd) throw()
+FD_Reader::FD_Reader(int fd) noexcept
 	: _fd(fd), _errno(0)
 {
 }
 
-FD_Reader::~FD_Reader() throw(){
+FD_Reader::~FD_Reader() noexcept{
 	/* Assume file is read only; don't really care about successful close. */
 	if(-1 != _fd)
 		close(_fd);
 }
 
-int FD_Reader::Read(uint8_t* buff, unsigned len) throw(){
+int FD_Reader::Read(uint8_t* buff, unsigned len) noexcept{
 	/* If file closed just return 0. */
 	if(-1 == _fd)
 		return 0;

@@ -135,10 +135,10 @@ namespace {
 		string qualified_name = the_model->name + "::" + data.name;
 
 		/* ctor */
-		data_spec_cpp << qualified_name << "::" << data.name << "() throw(){}" << std::endl;
+		data_spec_cpp << qualified_name << "::" << data.name << "() noexcept{}" << std::endl;
 
 		/* dtor */
-		data_spec_cpp << qualified_name << "::~" << data.name << "() throw(){}" << std::endl;
+		data_spec_cpp << qualified_name << "::~" << data.name << "() noexcept{}" << std::endl;
 
 		/* Clone function. */
 		data_spec_cpp << qualified_name << "* " << qualified_name << "::Clone() const{" << std::endl;
@@ -224,12 +224,12 @@ namespace {
 		}
 
 		/* Common hh stuff. */
-		data_spec_hh << data.name << "(void) throw();" << std::endl;
-		data_spec_hh << '~' << data.name << "() throw();" << std::endl;
+		data_spec_hh << data.name << "(void) noexcept;" << std::endl;
+		data_spec_hh << '~' << data.name << "() noexcept;" << std::endl;
 		data_spec_hh << data.name << "* Clone(void) const;" << std::endl;
 
 		/* hh.GetSpec */
-		data_spec_hh << "const Spec& GetSpec(void) const throw(){" << std::endl;
+		data_spec_hh << "const Spec& GetSpec(void) const noexcept{" << std::endl;
 		data_spec_hh << "return data_specs[" << data.name << "_DATA_SPEC];" << std::endl;
 		data_spec_hh << "}" << std::endl;
 

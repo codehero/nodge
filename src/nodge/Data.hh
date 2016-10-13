@@ -34,9 +34,9 @@ class Data{
 
 				/** @brief ctor. */
 				Spec(const string& pname, const MemberSpec* pmember_specs,
-						unsigned pnum_members, DataCtor ctor) throw();
+						unsigned pnum_members, DataCtor ctor) noexcept;
 
-				~Spec() throw();
+				~Spec() noexcept;
 
 				/** @brief Get the MemberSpec given the MemberSpec of the member. */
 				const MemberSpec& GetSpec(unsigned id) const throw(invalid_input);
@@ -44,7 +44,7 @@ class Data{
 				/** @brief Get the MemberSpec given the name of the member. */
 				const MemberSpec& GetSpec(const string& name) const throw(invalid_input);
 
-				bool operator ==(const Spec& other) const throw(){
+				bool operator ==(const Spec& other) const noexcept{
 					/* Do pointer comparison. Assume that only one legal copy exists. */
 					return (this == &other);
 				}
@@ -119,19 +119,19 @@ class Data{
 					d = *p;
 				}
 
-				void Reset(void) throw(){
+				void Reset(void) noexcept{
 					m_mem_idx = 0;
 					/* Just in case we have Data with zero members. */
 					m_end = m_mem_idx >= spec.num_members;
 				}
 
-				const_mem_iterator(const Data& data, unsigned offset) throw() :
+				const_mem_iterator(const Data& data, unsigned offset) noexcept :
 					m_data(data), spec(data.GetSpec()), m_mem_idx(offset)
 				{
 					m_end = m_mem_idx >= spec.num_members;
 				}
 
-				virtual ~const_mem_iterator() throw(){
+				virtual ~const_mem_iterator() noexcept{
 				}
 
 			protected:
@@ -146,7 +146,7 @@ class Data{
 		};
 
 		/** @brief Get Specs for the derived Data's members. The one stop shop for anything you wanted to know about a Data class. */
-		virtual const Spec& GetSpec(void) const throw() = 0;
+		virtual const Spec& GetSpec(void) const noexcept = 0;
 
 		/** @brief Copy data from src to this. */
 		virtual Data* Clone(void) const{
@@ -155,7 +155,7 @@ class Data{
 		}
 
 		/** @brief Determine if two members have the same value. */
-		//bool MemberEqual(const MemberSpec& member, const Data& other) const throw();
+		//bool MemberEqual(const MemberSpec& member, const Data& other) const noexcept;
 
 		/** @brief Retrieve const pointer to specified boolean. */
 		virtual void Get(const MemberSpec& id, const bool*& x) const throw(parameter_error){
@@ -279,7 +279,7 @@ class Data{
 		/** @brief Use this iterator to find things in changes that are different from a reference. */
 		class diff_iterator : public const_mem_iterator{
 			public:
-				void operator++() throw();
+				void operator++() noexcept;
 
 				/** @brief */
 				diff_iterator(const Data& changes, const Data& reference, unsigned offset);
@@ -289,7 +289,7 @@ class Data{
 				const Data& other;
 		};
 
-		virtual ~Data() throw(){
+		virtual ~Data() noexcept{
 		}
 };
 

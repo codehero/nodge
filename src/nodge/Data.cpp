@@ -1,12 +1,12 @@
 #include "Data.hh"
 
-Data::Spec::Spec(const string& pname, const MemberSpec* pmember_specs, unsigned pnum_members, DataCtor ctor) throw() :
+Data::Spec::Spec(const string& pname, const MemberSpec* pmember_specs, unsigned pnum_members, DataCtor ctor) noexcept :
 	name(pname), member_specs(pmember_specs), num_members(pnum_members),
 	data_ctor(ctor)
 {
 }
 
-Data::Spec::~Spec(void) throw(){
+Data::Spec::~Spec(void) noexcept{
 }
 
 const MemberSpec& Data::Spec::GetSpec(unsigned mid) const throw(invalid_input){
@@ -72,7 +72,7 @@ void SetMembers(Data& data, member_iterator& j) throw(exception){
 	j.ForEach<Setter>(s);
 }
 
-void Data::diff_iterator::operator++() throw(){
+void Data::diff_iterator::operator++() noexcept{
 	do{
 		++m_mem_idx;
 		m_end = m_mem_idx >= spec.num_members;

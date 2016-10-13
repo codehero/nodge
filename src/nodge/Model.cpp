@@ -49,12 +49,12 @@ Model::Model(const std::string& id_str,
 Model::~Model(){
 }
 
-bool Model::References(const Model& other) const throw(){
+bool Model::References(const Model& other) const noexcept{
 	/* FIXME */
 	return true;
 }
 
-const Model* Model::GetModel(const string& name) throw(){
+const Model* Model::GetModel(const string& name) noexcept{
 	for(ModelList::const_iterator i = s_models.begin(); i != s_models.end(); ++i){
 		if(name == (*i)->_id_str)
 			return (*i);
@@ -62,7 +62,7 @@ const Model* Model::GetModel(const string& name) throw(){
 	return NULL;
 }
 
-const Data::Spec* Model::GetDataSpec(const string& name) const throw(){
+const Data::Spec* Model::GetDataSpec(const string& name) const noexcept{
 	for(unsigned i = 0; i < _dataspec_count; ++i){
 		if(_dataspecs[i].name == name)
 			return _dataspecs + i;
@@ -70,7 +70,7 @@ const Data::Spec* Model::GetDataSpec(const string& name) const throw(){
 	return NULL;
 }
 
-const LinkSpec* Model::GetLinkSpec(const string& name) const throw(){
+const LinkSpec* Model::GetLinkSpec(const string& name) const noexcept{
 	for(unsigned i = 0; i < _linkspec_count; ++i){
 		if(_linkspecs[i].name == name)
 			return _linkspecs + i;
@@ -78,7 +78,7 @@ const LinkSpec* Model::GetLinkSpec(const string& name) const throw(){
 	return NULL;
 }
 
-const NodeSpec* Model::GetNodeSpec(const string& name) const throw(){
+const NodeSpec* Model::GetNodeSpec(const string& name) const noexcept{
 	for(unsigned i = 0; i < _nodespec_count; ++i){
 		if(_nodespecs[i].name == name)
 			return _nodespecs + i;
@@ -87,21 +87,21 @@ const NodeSpec* Model::GetNodeSpec(const string& name) const throw(){
 }
 
 const LinkSpec* const* Model::model_begin(const Model* m1, const Model* m2)
-	const throw()
+	const noexcept
 {
 	/* FIXME */
 	return NULL;
 }
 
 const LinkSpec* const* Model::model_end(const Model* m1, const Model* m2) const
-	throw()
+	noexcept
 {
 	/* FIXME */
 	return NULL;
 }
 
 unsigned SumNeighbors(const Model& m, const NodeSpec& nspec, const LinkSpec& ls)
-	throw()
+	noexcept
 {
 	unsigned count = 0;
 	for(Model::lspec_iterator i = m.constant_begin(nspec); !(ls == **i); ++i){
@@ -111,7 +111,7 @@ unsigned SumNeighbors(const Model& m, const NodeSpec& nspec, const LinkSpec& ls)
 	return count;
 }
 
-int Model::get_offset(const NodeSpec& nspec) const throw(){
+int Model::get_offset(const NodeSpec& nspec) const noexcept{
 	int ret = ModelID(nspec);
 	if(ret < 0){
 		for(unsigned i = 0; i < _external_node_count; ++i){
